@@ -83,7 +83,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
      */
     public function renderStringFunction($text = null)
     {
-        $output = Craft::$app->getView()->renderString($text)
+        $output = Craft::$app->getView()->renderString($text);
 
         return $output;
     }
