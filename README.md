@@ -2,8 +2,6 @@
 
 Allows you to parse any text as a Twig template, with access to variables, from globals, entries, etc.
 
-![Screenshot](resources/img/plugin-logo.png)
-
 ## Requirements
 
 This plugin requires Craft CMS 3.0.0-beta.23 or later.
@@ -24,10 +22,51 @@ To install the plugin, follow these instructions.
 
 ## Dynamic Variables Overview
 
--Insert text here-
+The filter and function allows you to output variables from Craft, globals, plugins and your configs.
+You would reference the field as you would in a template with `{{ }}`.
+
+This plugin is limited to outputting text based fields.
+It isn't possible to reference the entry itself, so you won't be able to use `{{ entry.title }}` within another field of that entry.
 
 ## Using Dynamic Variables
+Here are some example for using the filter and function.
 
--Insert text here-
+### Craft
+Want to output the site name or site URL.
+
+#### Filter
+{{ '{{ siteName }} {{ siteUrl }}' | dv }}
+
+#### Function
+{{ dv('{{ siteName }} {{ siteUrl }}') }
+
+### Globals
+If you want to output a global field, such as a telephone number.
+
+#### Filter
+{{ '{{ globalHandle.fieldHandle }}' | dv }}
+
+#### Function
+{{ dv('{{ globalHandle.fieldHandle }}') }
+
+### Plugin example
+If you want to output field data from a plugin such as SEOmatic.
+
+#### Filter
+{{ '{{ seomatic.site.sameAsLinks["instagram"]["url"] }}' | dv }}
+
+#### Function
+{{ dv('{{ seomatic.site.sameAsLinks["instagram"]["url"] }}') }}
+
+
+### Config example
+Maybe you want to output a value from a config file, such as a custom value in the general.php file.
+
+#### Filter
+{{ '{{ craft.app.config.general.custom.variableName }}' | dv }}
+
+#### Function
+{{ dv('{{ craft.app.config.general.custom.variableName }}') }}
+
 
 Brought to you by [Nathan Reed](https://vimia.co.uk)
