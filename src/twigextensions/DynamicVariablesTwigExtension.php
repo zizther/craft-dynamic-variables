@@ -55,6 +55,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     {
         return [
             new TwigFilter('dv', [$this, 'renderStringFunction']),
+            new TwigFilter('rv', [$this, 'renderStringFunction']),
         ];
     }
 
@@ -69,6 +70,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('dv', [$this, 'renderStringFunction']),
+            new TwigFunction('rv', [$this, 'renderStringFunction']),
         ];
     }
 
