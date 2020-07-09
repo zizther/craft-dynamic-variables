@@ -1,0 +1,46 @@
+{
+    "name": "zizther/craft-dynamic-variables",
+    "description": "Allows you to parse any text as a Twig template, with access to variables, from globals, entries, etc.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "dynamic variables"
+    ],
+    "support": {
+        "docs": "https://github.com/zizther/craft-dynamic-variables/blob/master/README.md",
+        "issues": "https://github.com/zizther/craft-dynamic-variables/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nathan Reed",
+            "homepage": "https://vimia.co.uk"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "zizther\\dynamicvariables\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Dynamic Variables",
+        "handle": "dynamic-variables",
+        "developer": "Nathan Reed",
+        "developerUrl": "https://vimia.co.uk",
+        "documentationUrl": "https://github.com/zizther/craft-dynamic-variables/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/zizther/craft-dynamic-variables/master/CHANGELOG.md",
+        "class": "zizther\\dynamicvariables\\DynamicVariables"
+    }
+}
