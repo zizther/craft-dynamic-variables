@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.4 - 2020-07-15
+### Fixed
+- Returns a string wrapped in a \Twig\Markup object
+
 ## 1.0.3 - 2020-07-14
 ### Fixed
-- Fixed use case where no content or an empty string is passed in
+- Use case where no content or an empty string is passed in
 
 ## 1.0.2 - 2020-07-09
 ### Added

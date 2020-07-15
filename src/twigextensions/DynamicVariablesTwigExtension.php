@@ -89,7 +89,8 @@ class DynamicVariablesTwigExtension extends AbstractExtension
 
         // Test if anything has been passed in
         if ($text) {
-            $output = Craft::$app->getView()->renderString($text);
+            // Returns a string wrapped in a \Twig\Markup object
+            $output = Template::raw(Craft::$app->getView()->renderString($text));
             //$output = Craft::$app->getView()->renderObjectTemplate($text, {});
         }
 
