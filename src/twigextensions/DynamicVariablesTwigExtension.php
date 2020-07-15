@@ -13,6 +13,7 @@ namespace zizther\dynamicvariables\twigextensions;
 use zizther\dynamicvariables\DynamicVariables;
 
 use Craft;
+use craft\helpers\Template;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
