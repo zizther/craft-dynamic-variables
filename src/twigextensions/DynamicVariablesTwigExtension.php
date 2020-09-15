@@ -48,7 +48,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     /**
      * Returns an array of Twig filters, used in Twig templates via:
      *
-     *      {{ 'something {{ entry.title }}' | dv }}
+     *      {{ 'something {{ entry.title }}' | dv(entry) }}
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     /**
      * Returns an array of Twig functions, used in Twig templates via:
      *
-     *      {% set this = dv('something {{ entry.title }}') %}
+     *      {% set this = dv('something {{ entry.title }}', entry) %}
      *
     * @return array
      */
@@ -78,13 +78,13 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     /**
      * Our function called via Twig; it will convert any variables passed in
      * using `view.renderString()`
-     * NOTE: Craft::$app->getView()->renderObjectTemplate() can render the short { entry.title } syntax
      *
-     * @param null $text
+     * @param string $text
+     * @param entry $entry
      *
      * @return string outputs the string with the variables converted.
      */
-    public function renderStringFunction($text = null)
+    public function renderStringFunction($text = null, $entry = null)
     {
         $output = '';
 
@@ -92,8 +92,9 @@ class DynamicVariablesTwigExtension extends AbstractExtension
         if ($text) {
             // Returns a string wrapped in a \Twig\Markup object
             // This helps support fields which contain markup
-            $output = Template::raw(Craft::$app->getView()->renderString($text));
-            //$output = Craft::$app->getView()->renderObjectTemplate($text, {});
+            $output = Template::raw(Craft::$app->getView()->renderString($text, {
+                'entry' => $entry
+            }));
         }
 
         return $output;
