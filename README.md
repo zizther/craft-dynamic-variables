@@ -25,8 +25,13 @@ To install the plugin, follow these instructions.
 The filter and function allows you to output variables from Craft, globals, plugins and your configs.
 You would reference the field as you would in a template with `{{ }}`.
 
-This plugin is limited to outputting text based fields.
-It isn't possible to reference the entry itself, so you won't be able to use `{{ entry.title }}` within another field of that entry.
+This plugin is limited to outputting text based fields, by default, however if you would like to reference the entry itself you can do this passing in the entry within the filter or function, You will be able to reference any field within the entry you pass in.
+
+```
+{% set entry = craft.entries({ id: 1 }).one() %}
+{{ '{{ entry.title }}' | dv(entry) }}
+{{ dv('{{ entry.title }}', entry) }}
+```
 
 ## Using Dynamic Variables
 Here are some example for using the filter and function.
