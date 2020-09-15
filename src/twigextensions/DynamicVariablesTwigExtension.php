@@ -92,9 +92,9 @@ class DynamicVariablesTwigExtension extends AbstractExtension
         if ($text) {
             // Returns a string wrapped in a \Twig\Markup object
             // This helps support fields which contain markup
-            $output = Template::raw(Craft::$app->getView()->renderString($text, {
+            $output = Template::raw(Craft::$app->getView()->renderString($text, [
                 'entry' => $entry
-            }));
+            ]));
         }
 
         return $output;
