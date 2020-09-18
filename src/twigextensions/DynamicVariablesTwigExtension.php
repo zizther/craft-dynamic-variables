@@ -56,7 +56,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     {
         return [
             new TwigFilter('dv', [$this, 'renderStringFunction']),
-            new TwigFilter('rv', [$this, 'renderStringFunction']),
+            new TwigFilter('rv', [$this, 'renderStringFunctionDeprecated']),
         ];
     }
 
@@ -71,7 +71,7 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('dv', [$this, 'renderStringFunction']),
-            new TwigFunction('rv', [$this, 'renderStringFunction']),
+            new TwigFunction('rv', [$this, 'renderStringFunctionDeprecated']),
         ];
     }
 
@@ -98,5 +98,10 @@ class DynamicVariablesTwigExtension extends AbstractExtension
         }
 
         return $output;
+    }
+
+    public function renderStringFunctionDeprecated($text = null, $entry = null) {
+        Craft::$app->getDeprecator()->log('rv', 'rv has been deprecated. Use dv instead.');
+        $this->renderStringFunction($text, $entry);
     }
 }
