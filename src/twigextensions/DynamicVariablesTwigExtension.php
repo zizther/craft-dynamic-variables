@@ -1,6 +1,6 @@
 <?php
 /**
- * Dynamic Variables plugin for Craft CMS 3.x
+ * Dynamic Variables plugin for Craft CMS 4.x
  *
  * Allows you to parse any text as a Twig template, with access to variables, from globals, entries, etc.
  *
@@ -56,7 +56,6 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     {
         return [
             new TwigFilter('dv', [$this, 'renderStringFunction']),
-            new TwigFilter('rv', [$this, 'renderStringFunctionDeprecated']),
         ];
     }
 
@@ -71,7 +70,6 @@ class DynamicVariablesTwigExtension extends AbstractExtension
     {
         return [
             new TwigFunction('dv', [$this, 'renderStringFunction']),
-            new TwigFunction('rv', [$this, 'renderStringFunctionDeprecated']),
         ];
     }
 
@@ -98,10 +96,5 @@ class DynamicVariablesTwigExtension extends AbstractExtension
         }
 
         return $output;
-    }
-
-    public function renderStringFunctionDeprecated($text = null, $entry = null) {
-        Craft::$app->getDeprecator()->log('rv', 'rv() has been deprecated. Use dv() instead.');
-        $this->renderStringFunction($text, $entry);
     }
 }

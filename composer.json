@@ -2,7 +2,7 @@
     "name": "zizther/craft-dynamic-variables",
     "description": "Allows you to parse any text as a Twig template, with access to variables, from globals, entries, etc.",
     "type": "craft-plugin",
-    "version": "1.0.6",
+    "version": "2.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -22,12 +22,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0"
-    },
-    "require-dev": {
-      "craftcms/cms": "^3.2.0",
-      "codeception/codeception": "^4.1.22",
-      "vlucas/phpdotenv": "^3.0"
+        "craftcms/cms": "^4.0.0"
     },
     "autoload": {
         "psr-4": {

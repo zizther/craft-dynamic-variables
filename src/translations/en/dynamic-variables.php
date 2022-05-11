@@ -1,6 +1,6 @@
 <?php
 /**
- * Dynamic Variables plugin for Craft CMS 3.x
+ * Dynamic Variables plugin for Craft CMS 4.x
  *
  * Allows you to parse any text as a Twig template, with access to variables, from globals, entries, etc.
  *
